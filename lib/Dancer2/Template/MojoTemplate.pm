@@ -11,26 +11,6 @@ use Mojo::Template;
 
 with 'Dancer2::Core::Role::Template';
 
-=head1 SYNOPSIS
-
-To use this engine, you may configure L<Dancer2> via C<config.yaml>:
-
-    template: 'mojo_template'
-    engines:
-        mojo_template:
-            auto_escape: 1
-            trim_mark: '-'
-            prepend: 'my $t = $_[0];'
-    template:   "mojo_template"
-
-Or you may also change the rendering engine on a per-route basis by
-setting it manually with C<set>:
-
-    # code code code
-    set template => 'mojo_template';
-
-=cut
-
 has '+engine' => (
 	isa => InstanceOf ['Mojo::Template']
 );
@@ -50,15 +30,6 @@ sub _build_engine {
 	return Mojo::Template->new(%config);
 }
 
-=method render TEMPLATE, TOKENS
-
-Renders the template.  The first arg is a filename for the template file
-or a reference to a string that contains the template.  The second arg
-is a hashref for the tokens that you wish to pass to
-L<Mojo::Template> for rendering.
-
-=cut
-
 sub render {
 	my ($self, $template, $tokens) = @_;
 
@@ -75,10 +46,9 @@ sub render {
 }
 
 1;
-
-
+__END__ 
 =pod
-
+ 
 =head1 NAME
 
 Dancer2::Template::MojoTemplate - Mojo::Template wrapper for Dancer2
@@ -87,6 +57,24 @@ Dancer2::Template::MojoTemplate - Mojo::Template wrapper for Dancer2
 
 version 0.1.0
 
+=head1 SYNOPSIS
+
+To use this engine, you may configure L<Dancer2> via C<config.yaml>:
+
+    template: 'mojo_template'
+    engines:
+        mojo_template:
+            auto_escape: 1
+            trim_mark: '-'
+            prepend: 'my $t = $_[0];'
+    template:   "mojo_template"
+
+Or you may also change the rendering engine on a per-route basis by
+setting it manually with C<set>:
+
+    # code code code
+    set template => 'mojo_template';
+ 
 =head1 DESCRIPTION
 
 This is an interface between Dancer2's template engine abstraction layer and
@@ -117,7 +105,7 @@ L<Dancer2>, L<Mojo::Template>, L<http://mojolicio.us/>
 =head1 AUTHOR
 
 Nikita Melikhov <ver@0xff.su>
-
+ 
 =head1 COPYRIGHT AND LICENSE
 
 This software is copyright (c) 2013 by Nikita Melikhov.
@@ -126,4 +114,3 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
