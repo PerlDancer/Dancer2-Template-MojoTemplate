@@ -1,8 +1,0 @@
-CHANGES
-LICENSE
-MANIFEST
-META.yml
-Makefile.PL
-README
-lib/Dancer/Template/MojoTemplate.pm
-t/001_basics.t
