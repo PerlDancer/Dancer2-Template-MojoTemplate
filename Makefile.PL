@@ -31,7 +31,15 @@ my %WriteMakefileArgs = (
   'VERSION' => '0.1.1',
   'test' => {
     'TESTS' => 't/*.t'
-  }
+  },
+  'META_MERGE' {
+      resources => {
+          homepage    => 'https://github.com/VeroLom/Dancer2-Template-MojoTemplate',
+          license     => 'http://www.opensource.org/licenses/artistic-license-2.0',
+          repository  => 'https://github.com/VeroLom/Dancer2-Template-MojoTemplate',
+          bugtracker  => 'https://github.com/VeroLom/Dancer2-Template-MojoTemplate/issues'
+      },
+  },
 );
 
 
